@@ -30,7 +30,7 @@ jobs:
       SECRET_KEY: static secret key
       SQLALCHEMY_DATABASE_TEST_URI: postgresql://postgres:wplatrop@postgres/portaldb
       REDIS_URL: redis://redis:6379/0
-      TOXENV: py3
+      TOXENV: celery_background
     steps:
       - uses: actions/checkout@v4
 
