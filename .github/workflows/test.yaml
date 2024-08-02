@@ -22,13 +22,14 @@ jobs:
       postgres:
         # DockerHub image
         image: postgres:13
+        env:
+          POSTGRES_DB: portaldb
+          POSTGRES_PASSWORD: wplatrop
     env:
       SESSION_REDIS: redis://redis:6379/0
       SECRET_KEY: static secret key
       SQLALCHEMY_DATABASE_TEST_URI: postgresql://postgres:wplatrop@postgres/portaldb
       REDIS_URL: redis://redis:6379/0
-      POSTGRES_DB: portaldb
-      POSTGRES_PASSWORD: wplatrop
       TOXENV: py3
     steps:
       - uses: actions/checkout@v4
