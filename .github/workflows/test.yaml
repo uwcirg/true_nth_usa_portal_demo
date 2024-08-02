@@ -29,6 +29,7 @@ jobs:
       REDIS_URL: redis://redis:6379/0
       POSTGRES_DB: portaldb
       POSTGRES_PASSWORD: wplatrop
+      TOXENV: py3
     steps:
       - uses: actions/checkout@v4
 
