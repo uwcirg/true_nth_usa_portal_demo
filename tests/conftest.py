@@ -214,7 +214,7 @@ def initialized_db(app):
     yield
 
     cache.clear()
-    db.session.remove()
+    db.session.session_factory.close_all()
     db.engine.dispose()
     db.drop_all()
 
