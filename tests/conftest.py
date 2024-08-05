@@ -208,7 +208,6 @@ def app_logger(app):
 @pytest.fixture(autouse=True)
 def initialized_db(app):
     """Create database schema"""
-    db.drop_all()
     db.create_all()
 
     yield
