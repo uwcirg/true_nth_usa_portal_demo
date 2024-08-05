@@ -215,6 +215,8 @@ def initialized_db(app):
 
     cache.clear()
     db.session.session_factory.close_all()
+    db.session.remove()
+
     db.engine.dispose()
     db.drop_all()
 
