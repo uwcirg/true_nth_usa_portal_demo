@@ -3,6 +3,7 @@
 from datetime import datetime
 from glob import glob
 
+from sqlalchemy.orm.session import close_all_sessions
 from flask import url_for
 from flask_webtest import SessionScope
 import pytest
@@ -214,7 +215,7 @@ def initialized_db(app):
     yield
 
     cache.clear()
-    db.session.session_factory.close_all()
+    close_all_sessions()
     db.session.remove()
 
     db.engine.dispose()
