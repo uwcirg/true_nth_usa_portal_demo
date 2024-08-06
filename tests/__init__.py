@@ -528,6 +528,7 @@ class TestCase(Base):
         """Reset all tables before testing."""
         # NB - if the drop_all call ever hangs, it's typically a symptom
         # of an open handle to the test db - perhaps from celery workers.
+        db.session.session_factory.close_all()
         db.drop_all()  # clean up from previous tests
         db.create_all()
         with SessionScope(db):
